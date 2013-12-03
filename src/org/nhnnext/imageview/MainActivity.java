@@ -42,43 +42,45 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.button1:
-
-			if (changeImage) {
-				changeImage = false;
-				imgPath = "first.jpg";
-				// Toast.makeText(MainActivity.this,
-				// "first",Toast.LENGTH_SHORT).show();
-				Log.i("namecheck1", "first");
-
-			} else {
-				changeImage = true;
-				imgPath = "sec.JPG";
-				// Toast.makeText(MainActivity.this, "sec",
-				// Toast.LENGTH_SHORT).show();
-				Log.i("namecheck2", "sec");
-
-			}
-
-			InputStream ims;
-			try {
-				ims = getAssets().open(imgPath);
-				Drawable d = Drawable.createFromStream(ims, null);
-				imageview.setImageDrawable(d);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			break;
-			
-		}
 		try {
 
 			imageview.setBackgroundResource(212312);
-		
-		//Log.i("test",drawable.getColor());
-		} catch(Exception e){
-			Log.e("test","set error");
+
+			// Log.i("test",drawable.getColor());
+
+			switch (v.getId()) {
+			case R.id.button1:
+
+				if (changeImage) {
+					changeImage = false;
+					imgPath = "first.jpg";
+//					Toast.makeText(MainActivity.this,
+//					 "first",Toast.LENGTH_SHORT).show();
+					Log.i("namecheck1", "first");
+
+				} else {
+					changeImage = true;
+					imgPath = "sec.JPG";
+//					Toast.makeText(MainActivity.this, "sec",
+//					Toast.LENGTH_SHORT).show();
+					Log.i("namecheck2", "sec");
+
+				}
+
+				InputStream ims;
+				try {
+					ims = getAssets().open(imgPath);
+					Drawable d = Drawable.createFromStream(ims, null);
+					imageview.setImageDrawable(d);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				break;
+
+			}
+
+		} catch (Exception e) {
+			Log.e("test", "set error");
 			e.printStackTrace();
 		}
 	}
